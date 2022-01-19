@@ -18,7 +18,7 @@ variables:
   environmentName: 'my-app-name-19'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'linuxvm'
 
 stages:
 - stage: Build
@@ -27,6 +27,7 @@ stages:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
+      name: Default 
       vmImage: $(vmImageName)
 
     steps:
@@ -54,6 +55,7 @@ stages:
     displayName: Deploy Linux Web App
     environment: $(environmentName)
     pool:
+      name: Default 
       vmImage: $(vmImageName)
     strategy:
       runOnce:
