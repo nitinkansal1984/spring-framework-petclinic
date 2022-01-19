@@ -35,6 +35,7 @@ stages:
       displayName: 'Maven Package'
       inputs:
         mavenPomFile: 'pom.xml'
+        mavenDirectory: '/opt/maven'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
